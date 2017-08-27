@@ -21,7 +21,7 @@ For example the following renders an A Minor chord:
 	// Let's render a E Major chord as a chord box
 	$obj->renderChord(['0','2','2','1','0','0'], 200, 300);
 
-https://github.com/dnsimmons/chord-lib/blob/master/chord.png
+![Chord](https://github.com/dnsimmons/chord-lib/blob/master/chord.png)
 
 #### Rendering a tablature snippet
 
@@ -31,4 +31,4 @@ https://github.com/dnsimmons/chord-lib/blob/master/chord.png
 	// Let's render a E Major chord as tablature
 	$obj->renderTab(['0','2','2','1','0','0'], 300, 200);
 	
-https://github.com/dnsimmons/chord-lib/blob/master/tab.png
+![Tab](https://github.com/dnsimmons/chord-lib/blob/master/tab.png)
