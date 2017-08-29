@@ -56,7 +56,7 @@ For example the following renders an A Minor chord:
 	// Let's render a fingerboard pattern for G Major
 	$obj->renderPattern($pattern, 200);
 	
-![Tab](https://github.com/dnsimmons/chord-lib/blob/master/score.png)
+![Tab](https://github.com/dnsimmons/chord-lib/blob/master/pattern.png)
 
 
 #### Rendering a tablature snippet for a score
