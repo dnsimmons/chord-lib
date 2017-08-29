@@ -440,9 +440,13 @@ class ChordLib {
 		// draw the horizontral tablature lines
 		$y = 20;
 		for($i=0; $i<6; $i++){
-			imageline($obj_image, 0, $y, $width, $y, $color_line);
+			imageline($obj_image, 20, $y, ($width - 20), $y, $color_line);
 			$y = ($y + 20);
 		}
+
+		// draw the vertical bounding lines
+		imageline($obj_image, 20, 20, 20, (20 * 6), $color_line);
+		imageline($obj_image, ($width - 20), 20, ($width - 20), (20 * 6), $color_line);
 
 		// draw the markers and pitches for the notes
 		$x = 40;
