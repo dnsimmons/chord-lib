@@ -21,7 +21,7 @@ For example the following renders an A Minor chord:
 	// Let's render a E Major chord as a chord box
 	$obj->renderChord(['0','2','2','1','0','0'], 200, 300);
 
-![Chord](https://github.com/dnsimmons/chord-lib/blob/master/chord.png)
+![Chord](https://github.com/dnsimmons/chord-lib/blob/master/examples/chord.png)
 
 #### Rendering a tablature snippet for a chord
 
@@ -31,7 +31,7 @@ For example the following renders an A Minor chord:
 	// Let's render a E Major chord as tablature
 	$obj->renderTab(['0','2','2','1','0','0'], 300, 200);
 	
-![Tab](https://github.com/dnsimmons/chord-lib/blob/master/tab.png)
+![Tab](https://github.com/dnsimmons/chord-lib/blob/master/examples/tab.png)
 
 #### Rendering a fingerboard pattern
 
@@ -56,7 +56,7 @@ For example the following renders an A Minor chord:
 	// Let's render a fingerboard pattern for G Major
 	$obj->renderPattern($pattern, 200);
 	
-![Tab](https://github.com/dnsimmons/chord-lib/blob/master/pattern.png)
+![Tab](https://github.com/dnsimmons/chord-lib/blob/master/examples/pattern.png)
 
 
 #### Rendering a tablature snippet for a score
@@ -88,4 +88,4 @@ For example the following renders an A Minor chord:
 	// Let's render a small portion of the intro to Ozzy's Crazy Train
 	$obj->renderScore($score, 160);
 	
-![Tab](https://github.com/dnsimmons/chord-lib/blob/master/score.png)
+![Tab](https://github.com/dnsimmons/chord-lib/blob/master/examples/score.png)
