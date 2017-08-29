@@ -226,7 +226,7 @@ class ChordLib {
 		// draw the horizontral tablature lines
 		$y = 20;
 		for($i=0; $i<6; $i++){
-			imageline($obj_image, 0, $y, 320, $y, $color_line);
+			imageline($obj_image, 0, $y, $width, $y, $color_line);
 			$y = ($y + 20);
 		}
 		// draw the markers and pitches for the strings
@@ -274,6 +274,104 @@ class ChordLib {
 		imagedestroy($obj_image);
 
 	}
+
+	/**
+ 	 ***************************************************************************
+ 	 * renderScore
+	 * Renders a guitar tablature score snippet with the given dimensions and fingering. 
+	 * 
+	 * @param  array $fingering Array of fingerboard marker positions as arrays:
+	 *                          x = unplucked string
+	 *                          0 = open plucked string
+	 *                          1-5 = fretted plucked note
+	 * @param  integer $height  Image height in pixels
+	 * 
+	 * @return void
+ 	 ***************************************************************************
+	 */
+	public function renderScore($fingering, $height){
+
+        // create a image object
+        $width = ((count($fingering) * 40) + 40);
+		$obj_image = imagecreate($width, $height);
+
+		// create color object for the image background
+		$rgb = $this->renderColor('#ffffff');
+		$color_background = imagecolorallocate($obj_image, $rgb[0], $rgb[1], $rgb[2]);
+
+		// create color object for the image foreground lines
+		$rgb = $this->renderColor('#000000');		
+		$color_line = imagecolorallocate($obj_image, $rgb[0], $rgb[1], $rgb[2]);
+
+		// create color object for the image foreground marker
+		$rgb = $this->renderColor('#f5f5f5');		
+		$color_marker = imagecolorallocate($obj_image, $rgb[0], $rgb[1], $rgb[2]);
+
+		// create color object for the image markers
+		$rgb = $this->renderColor('#000000');	
+		$color_text = imagecolorallocate($obj_image, $rgb[0], $rgb[1], $rgb[2]);
+
+		// draw the horizontral tablature lines
+		$y = 20;
+		for($i=0; $i<6; $i++){
+			imageline($obj_image, 0, $y, $width, $y, $color_line);
+			$y = ($y + 20);
+		}
+
+		// draw the markers and pitches for the notes
+		$x = 40;
+		foreach($fingering as $item){
+
+			// break down fingering array to individual strings
+			$string_0 = (string) $item[0];
+			$string_1 = (string) $item[1];
+			$string_2 = (string) $item[2];
+			$string_3 = (string) $item[3];
+			$string_4 = (string) $item[4];
+			$string_5 = (string) $item[5];
+
+			// draw the markers and pitches for the notes
+			if($string_0 != 'x'){
+				imagefilledellipse($obj_image, ($x + 4), 118, 20, 20, $color_marker);
+				imageellipse($obj_image, ($x + 4), 118, 20, 20, $color_line);
+				imagestring($obj_image, 8, $x, 110, $string_0, $color_text);
+			}
+			if($string_1 != 'x'){
+				imagefilledellipse($obj_image, ($x + 4), 98, 20, 20, $color_marker);
+				imageellipse($obj_image, ($x + 4), 98, 20, 20, $color_line);
+				imagestring($obj_image, 8, $x, 90, $string_1, $color_text);
+			}
+			if($string_2 != 'x'){
+				imagefilledellipse($obj_image, ($x + 4), 78, 20, 20, $color_marker);
+				imageellipse($obj_image, ($x + 4), 78, 20, 20, $color_line);			
+				imagestring($obj_image, 8, $x, 70, $string_2, $color_text);
+			}
+			if($string_3 != 'x'){
+				imagefilledellipse($obj_image, ($x + 4), 58, 20, 20, $color_marker);
+				imageellipse($obj_image, ($x + 4), 58, 20, 20, $color_line);
+				imagestring($obj_image, 8, $x, 50, $string_3, $color_text);
+			}
+			if($string_4 != 'x'){
+				imagefilledellipse($obj_image, ($x + 4), 38, 20, 20, $color_marker);
+				imageellipse($obj_image, ($x + 4), 38, 20, 20, $color_line);
+				imagestring($obj_image, 8, $x, 30, $string_4, $color_text);
+			}
+			if($string_5 != 'x'){
+				imagefilledellipse($obj_image, ($x + 4), 18, 20, 20, $color_marker);
+				imageellipse($obj_image, ($x + 4), 18, 20, 20, $color_line);
+				imagestring($obj_image, 8, $x, 10, $string_5, $color_text);
+			}
+
+			$x = ($x + 40);
+		}
+
+		// output the image as raw image data and cleanup
+		header("Content-type: image/png");
+		imagepng($obj_image);
+		imagedestroy($obj_image);
+
+	}
+
 
 }
 

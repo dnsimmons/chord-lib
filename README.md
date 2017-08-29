@@ -23,7 +23,7 @@ For example the following renders an A Minor chord:
 
 ![Chord](https://github.com/dnsimmons/chord-lib/blob/master/chord.png)
 
-#### Rendering a tablature snippet
+#### Rendering a tablature snippet for a chord
 
 	require_once('ChordLib.php');
 	$obj = new ChordLib();
@@ -32,3 +32,34 @@ For example the following renders an A Minor chord:
 	$obj->renderTab(['0','2','2','1','0','0'], 300, 200);
 	
 ![Tab](https://github.com/dnsimmons/chord-lib/blob/master/tab.png)
+
+#### Rendering a tablature snippet for a score
+
+	require_once('ChordLib.php');
+	$obj = new ChordLib();
+
+	$score = array(
+		array('2','x','x','x','x','x'),
+		array('2','x','x','x','x','x'),
+		array('x','4','x','x','x','x'),
+		array('2','x','x','x','x','x'),
+		array('x','5','x','x','x','x'),
+		array('2','x','x','x','x','x'),
+		array('x','4','x','x','x','x'),
+		array('2','x','x','x','x','x'),
+		array('x','2','x','x','x','x'),
+		array('x','0','x','x','x','x'),
+		array('4','x','x','x','x','x'),
+		array('x','0','x','x','x','x'),
+		array('x','2','x','x','x','x'),
+		array('x','0','x','x','x','x'),
+		array('4','x','x','x','x','x'),
+		array('x','0','x','x','x','x'),
+		array('x','x','0','2','3','2'),
+		array('x','x','x','4','5','4'),
+	);
+
+	// Let's render a small portion of the intro to Ozzy's Crazy Train
+	$obj->renderScore($score, 160);
+	
+![Tab](https://github.com/dnsimmons/chord-lib/blob/master/score.png)
