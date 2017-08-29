@@ -401,31 +401,40 @@ class ChordLib {
 	 *                          x = unplucked string
 	 *                          0 = open plucked string
 	 *                          1-5 = fretted plucked note
-	 * @param  integer $height  Image height in pixels
+	 * @param  array $options  Array of options as key value pairs:
+	 *                         color_background   - HEX Color value (default #ffffff)
+	 *                         color_line		  - HEX Color value (default #000000)
+	 *                         color_marker		  - HEX Color value (default #ffffff)
+	 *                         color_text		  - HEX Color value (default #000000)
 	 * 
 	 * @return void
  	 ***************************************************************************
 	 */
-	public function renderScore($fingering, $height){
+	public function renderScore($fingering, $options){
 
         // create a image object
-        $width = ((count($fingering) * 40) + 40);
-		$obj_image = imagecreate($width, $height);
+        $width 		= ((count($fingering) * 40) + 40);
+        $height 	= (20 * 7);
+		$obj_image 	= imagecreate($width, $height);
 
 		// create color object for the image background
-		$rgb = $this->renderColor('#ffffff');
+		$hex = (isset($options['color_background'])) ? $options['color_background'] : '#ffffff';
+		$rgb = $this->renderColor($hex);
 		$color_background = imagecolorallocate($obj_image, $rgb[0], $rgb[1], $rgb[2]);
 
 		// create color object for the image foreground lines
-		$rgb = $this->renderColor('#000000');		
+		$hex = (isset($options['color_line'])) ? $options['color_line'] : '#000000';
+		$rgb = $this->renderColor($hex);	
 		$color_line = imagecolorallocate($obj_image, $rgb[0], $rgb[1], $rgb[2]);
 
 		// create color object for the image foreground marker
-		$rgb = $this->renderColor('#f5f5f5');		
+		$hex = (isset($options['color_marker'])) ? $options['color_marker'] : '#ffffff';
+		$rgb = $this->renderColor($hex);	
 		$color_marker = imagecolorallocate($obj_image, $rgb[0], $rgb[1], $rgb[2]);
 
-		// create color object for the image markers
-		$rgb = $this->renderColor('#000000');	
+		// create color object for the image text
+		$hex = (isset($options['color_text'])) ? $options['color_text'] : '#000000';
+		$rgb = $this->renderColor($hex);	
 		$color_text = imagecolorallocate($obj_image, $rgb[0], $rgb[1], $rgb[2]);
 
 		// draw the horizontral tablature lines
@@ -451,32 +460,32 @@ class ChordLib {
 			if($string_0 != 'x'){
 				imagefilledellipse($obj_image, ($x + 4), 118, 20, 20, $color_marker);
 				imageellipse($obj_image, ($x + 4), 118, 20, 20, $color_line);
-				imagestring($obj_image, 8, $x, 110, $string_0, $color_text);
+				imagestring($obj_image, 3, $x, 110, $string_0, $color_text);
 			}
 			if($string_1 != 'x'){
 				imagefilledellipse($obj_image, ($x + 4), 98, 20, 20, $color_marker);
 				imageellipse($obj_image, ($x + 4), 98, 20, 20, $color_line);
-				imagestring($obj_image, 8, $x, 90, $string_1, $color_text);
+				imagestring($obj_image, 3, $x, 90, $string_1, $color_text);
 			}
 			if($string_2 != 'x'){
 				imagefilledellipse($obj_image, ($x + 4), 78, 20, 20, $color_marker);
 				imageellipse($obj_image, ($x + 4), 78, 20, 20, $color_line);			
-				imagestring($obj_image, 8, $x, 70, $string_2, $color_text);
+				imagestring($obj_image, 3, $x, 70, $string_2, $color_text);
 			}
 			if($string_3 != 'x'){
 				imagefilledellipse($obj_image, ($x + 4), 58, 20, 20, $color_marker);
 				imageellipse($obj_image, ($x + 4), 58, 20, 20, $color_line);
-				imagestring($obj_image, 8, $x, 50, $string_3, $color_text);
+				imagestring($obj_image, 3, $x, 50, $string_3, $color_text);
 			}
 			if($string_4 != 'x'){
 				imagefilledellipse($obj_image, ($x + 4), 38, 20, 20, $color_marker);
 				imageellipse($obj_image, ($x + 4), 38, 20, 20, $color_line);
-				imagestring($obj_image, 8, $x, 30, $string_4, $color_text);
+				imagestring($obj_image, 3, $x, 30, $string_4, $color_text);
 			}
 			if($string_5 != 'x'){
 				imagefilledellipse($obj_image, ($x + 4), 18, 20, 20, $color_marker);
 				imageellipse($obj_image, ($x + 4), 18, 20, 20, $color_line);
-				imagestring($obj_image, 8, $x, 10, $string_5, $color_text);
+				imagestring($obj_image, 3, $x, 10, $string_5, $color_text);
 			}
 
 			$x = ($x + 40);
