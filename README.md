@@ -13,79 +13,124 @@ For example the following renders an A Minor chord:
 
 ### Examples
 
-#### Rendering a chord box
+#### Chord Boxes
+
+The `renderChord` method will output a PNG image depicting a standard 6 string guitar chord box with a given fingerboard pattern defined as an array:
+
+	['E','A','D','G','B','E']
+
+##### Example
 
 	require_once('ChordLib.php');
 	$obj = new ChordLib();
 
-	// Let's render a E Major chord as a chord box
+	// Let's render a E Major chord as a chord box with a image width of 200px and a height of 300px
 	$obj->renderChord(['0','2','2','1','0','0'], 200, 300);
+
+##### Output
 
 ![Chord](https://github.com/dnsimmons/chord-lib/blob/master/examples/chord.png)
 
-#### Rendering a tablature snippet for a chord
+#### Chord Tablature
+
+The `renderTab` method will output a PNG image depicting a standard 6 string guitar tablature chord snippet with a given fingerboard pattern defined as an array:
+
+
+	['E','A','D','G','B','E']
+
+##### Example
 
 	require_once('ChordLib.php');
 	$obj = new ChordLib();
 
-	// Let's render a E Major chord as tablature
+	// Let's render a E Major chord as tablature with a image width of 300px and a height of 200px
 	$obj->renderTab(['0','2','2','1','0','0'], 300, 200);
+
+##### Output
 	
 ![Tab](https://github.com/dnsimmons/chord-lib/blob/master/examples/tab.png)
 
-#### Rendering a fingerboard pattern
+#### Fingerboard Patterns
+
+The `renderPattern` method will output a PNG image depicting a standard 6 string guitar fingerboard up to the 12th fret with a given fingerboard pattern defined by a nested set of arrays:
+
+	[
+		['E','A','D','G','B','E'], <-- first fret
+		['E','A','D','G','B','E'], <-- second fret
+		['E','A','D','G','B','E']  <-- third fret
+		...
+	]
+
+
+##### Example
 
 	require_once('ChordLib.php');
 	$obj = new ChordLib();
 
-	$pattern = array(
-		array('x','x','x','x','x','x'),
-		array('x','2','2','2','x','2'),
-		array('3','3','x','x','3','3'),
-		array('x','x','4','4','x','x'),
-		array('5','5','5','5','5','x'),
-		array('x','x','x','x','x','x'),
-		array('x','x','x','7','x','7'),
-		array('x','x','x','x','8','x'),
-		array('x','x','9','x','x','x'),
-		array('x','10','x','x','x','x'),
-		array('x','x','x','x','x','x'),
-		array('x','x','x','12','x','x'),
-	);
+	$pattern = [
+		['x','x','x','x','x','x'],
+		['x','2','2','2','x','2'],
+		['3','3','x','x','3','3'],
+		['x','x','4','4','x','x'],
+		['5','5','5','5','5','x'],
+		['x','x','x','x','x','x'],
+		['x','x','x','7','x','7'],
+		['x','x','x','x','8','x'],
+		['x','x','9','x','x','x'],
+		['x','10','x','x','x','x'],
+		['x','x','x','x','x','x'],
+		['x','x','x','12','x','x']
+	];
 
-	// Let's render a fingerboard pattern for G Major
+	// Let's render a fingerboard pattern for G Major with an image height of 200px
 	$obj->renderPattern($pattern, 200);
+
+##### Output
 	
 ![Tab](https://github.com/dnsimmons/chord-lib/blob/master/examples/pattern.png)
 
 
-#### Rendering a tablature snippet for a score
+#### Tablature Scores
+
+The `renderScore` method will output a PNG image depicting a standard 6 string guitar tablature score with a given fingerboard pattern defined by a nested set of arrays:
+
+	[
+		['E','A','D','G','B','E'], <-- first note(s)
+		['E','A','D','G','B','E'], <-- second note(s)
+		['E','A','D','G','B','E']  <-- third note(s)
+		...
+	]
+
+
+##### Example
 
 	require_once('ChordLib.php');
 	$obj = new ChordLib();
 
-	$score = array(
-		array('2','x','x','x','x','x'),
-		array('2','x','x','x','x','x'),
-		array('x','4','x','x','x','x'),
-		array('2','x','x','x','x','x'),
-		array('x','5','x','x','x','x'),
-		array('2','x','x','x','x','x'),
-		array('x','4','x','x','x','x'),
-		array('2','x','x','x','x','x'),
-		array('x','2','x','x','x','x'),
-		array('x','0','x','x','x','x'),
-		array('4','x','x','x','x','x'),
-		array('x','0','x','x','x','x'),
-		array('x','2','x','x','x','x'),
-		array('x','0','x','x','x','x'),
-		array('4','x','x','x','x','x'),
-		array('x','0','x','x','x','x'),
-		array('x','x','0','2','3','2'),
-		array('x','x','x','4','5','4'),
-	);
+	$score = [
+		['2','x','x','x','x','x'],
+		['2','x','x','x','x','x'],
+		['x','4','x','x','x','x'],
+		['2','x','x','x','x','x'],
+		['x','5','x','x','x','x'],
+		['2','x','x','x','x','x'],
+		['x','4','x','x','x','x'],
+		['2','x','x','x','x','x'],
+		['x','2','x','x','x','x'],
+		['x','0','x','x','x','x'],
+		['4','x','x','x','x','x'],
+		['x','0','x','x','x','x'],
+		['x','2','x','x','x','x'],
+		['x','0','x','x','x','x'],
+		['4','x','x','x','x','x'],
+		['x','0','x','x','x','x'],
+		['x','x','0','2','3','2'],
+		['x','x','x','4','5','4']
+	];
 
-	// Let's render a small portion of the intro to Ozzy's Crazy Train
-	$obj->renderScore($score, 160);
+	// Let's render a small portion of the intro to Ozzy's Crazy Train with a image height of 200px
+	$obj->renderScore($score, 200);
+
+##### Output
 	
 ![Tab](https://github.com/dnsimmons/chord-lib/blob/master/examples/score.png)
