@@ -113,6 +113,7 @@ The `renderScore` method will output a PNG image depicting a standard 6 string g
 	require_once('ChordLib.php');
 	$obj = new ChordLib();
 
+	// Let's define a small portion of the intro to Ozzy's Crazy Train
 	$score = [
 		['2','x','x','x','x','x'],
 		['2','x','x','x','x','x'],
@@ -134,8 +135,13 @@ The `renderScore` method will output a PNG image depicting a standard 6 string g
 		['x','x','x','4','5','4']
 	];
 
-	// Let's render a small portion of the intro to Ozzy's Crazy Train with a image height of 200px
-	$obj->renderScore($score, 200);
+	// Set some optional options like the text color, just for fun.
+	$options = [
+		'color_text' => '#aa0000'
+	];
+
+	// Render the pattern as a PNG image.	
+	$obj->renderScore($score, $options);
 
 ##### Output
 	

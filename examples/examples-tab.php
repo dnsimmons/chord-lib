@@ -1,6 +1,6 @@
 <?php
 
-require_once('ChordLib.php');
+require_once('../ChordLib.php');
 $obj = new ChordLib();
 
 // Let's render a E Major chord as tablature

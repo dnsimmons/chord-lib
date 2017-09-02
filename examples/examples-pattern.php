@@ -19,11 +19,12 @@
 		['x','x','x','x','x','x'],
 	];
 
+	// Set some optional options like the text color, just for fun.
 	$options = [
 		'color_text' => '#aa0000'
 	];
 
-	// Render the pattern and change the marker text color just for fun.
+	// Render the pattern as a PNG image.	
 	$obj->renderPattern($pattern, $options);
 
 ?>

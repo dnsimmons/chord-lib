@@ -30,7 +30,7 @@
 		'color_text' => '#aa0000'
 	];
 
-	// Render the pattern as a PNG image.	
+	// Render the score as a PNG image.	
 	$obj->renderScore($score, $options);
 
 ?>

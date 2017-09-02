@@ -4,10 +4,10 @@
  ********************************************************************************
  * ChordLib
  * 
- * Renders guitar chord diagrams and tablature blocks using GD.
+ * Renders guitar chord diagrams, fingerboard patterns,  and tablature snippets using GD.
  *
  * @package  ChordLib
- * @version  0.0.1
+ * @version  0.0.2
  * @author   Dave Simmons <http://github.com/dnsimmons>
  * @license  LGPLv3
  ********************************************************************************
