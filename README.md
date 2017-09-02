@@ -1,17 +1,26 @@
 # ChordLib
+
+
+----------
+
+
 Generate guitar chord boxes and tablature snippets with PHP and GD.
+
 
 ChordLib generates its images from an array of supplied fingerboard markings where the arrays first element is the low E (thickest) string moving forwards one element per string. Each elements value in the array can be an integer from `0` to `5` where 0 denotes an open plucked string and 1 to 5 denotes a fretted note. Excluding a string is denoted by a `x`. 
 
 ChordLib makes an assumption that the guitar fingerboard is for a 6 string guitar in standard tuning.
 
-For example the following renders an A Minor chord:
+For example the following represents an A Minor chord:
 
-	$chord = ['x','0','2','2','1','0'];
-
+    ['x','0','2','2','1','0']
 
 
 ### Examples
+
+
+----------
+
 
 #### Chord Boxes
 
@@ -30,6 +39,10 @@ The `renderChord` method will output a PNG image depicting a standard 6 string g
 ##### Output
 
 ![Chord](https://github.com/dnsimmons/chord-lib/blob/master/examples/chord.png)
+
+
+----------
+
 
 #### Chord Tablature
 
@@ -50,6 +63,10 @@ The `renderTab` method will output a PNG image depicting a standard 6 string gui
 	
 ![Tab](https://github.com/dnsimmons/chord-lib/blob/master/examples/tab.png)
 
+
+----------
+
+
 #### Fingerboard Patterns
 
 The `renderPattern` method will output a PNG image depicting a standard 6 string guitar fingerboard up to the 12th fret with a given fingerboard pattern defined by a nested set of arrays:
@@ -60,6 +77,12 @@ The `renderPattern` method will output a PNG image depicting a standard 6 string
 		['E','A','D','G','B','E']  <-- third fret
 		...
 	]
+`renderPattern` accepts two arguments the first being an array of fingerboard markings and the second an optional array of options:
+
+	 color_background   - HEX Color value (default #ffffff)
+	 color_line		  	- HEX Color value (default #000000)
+	 color_marker		- HEX Color value (default #ffffff)
+	 color_text		  	- HEX Color value (default #000000)
 
 
 ##### Example
@@ -96,6 +119,9 @@ The `renderPattern` method will output a PNG image depicting a standard 6 string
 ![Tab](https://github.com/dnsimmons/chord-lib/blob/master/examples/pattern.png)
 
 
+----------
+
+
 #### Tablature Scores
 
 The `renderScore` method will output a PNG image depicting a standard 6 string guitar tablature score with a given fingerboard pattern defined by a nested set of arrays:
@@ -107,6 +133,12 @@ The `renderScore` method will output a PNG image depicting a standard 6 string g
 		...
 	]
 
+`renderScore` accepts two arguments the first being an array of fingerboard markings and the second an optional array of options:
+
+	 color_background   - HEX Color value (default #ffffff)
+	 color_line		  	- HEX Color value (default #000000)
+	 color_marker		- HEX Color value (default #ffffff)
+	 color_text		  	- HEX Color value (default #000000)
 
 ##### Example
 
